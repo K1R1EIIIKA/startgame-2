@@ -19,13 +19,12 @@ public class TerrainGenerator : MonoBehaviour
     [SerializeField] private Transform _terrainParent;
     
     [Header("Other")]
-    [SerializeField] private int _maxTerrainCount = 5;
-    // [SerializeField] private float _terrainOffset = 1;
-    // [SerializeField] private float _middleTerrainOffset = 1;
-    
+    [SerializeField] private int _maxTerrainCount = 10;
+
+    private PlayerControls _controls;
 
     private Vector3 _currentPosition = Vector3.zero;
-    private List<GameObject> _terrainList = new List<GameObject>();
+    private List<GameObject> _terrainList = new();
     
     private void Awake()
     {
@@ -33,15 +32,28 @@ public class TerrainGenerator : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        _controls = new PlayerControls();
+
+        _controls.PlayerInput.Tap.performed += _ => SpawnRandomTerrain();
     }
 
     private void Start()
     {
-        for (int i = 0; i < _maxTerrainCount; i++)
+        for (int i = 0; i < 5; i++)
         {
             SpawnRandomTerrain();
-            SpawnTerrain(_middleTerrain);
         }
+    }
+
+    private void OnEnable()
+    {
+        _controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _controls.Disable();
     }
 
     private void SpawnRandomTerrain()
@@ -58,6 +70,8 @@ public class TerrainGenerator : MonoBehaviour
                 SpawnTerrain(_gravitationTerrains[Random.Range(0, _obstacleTerrains.Count)]);
                 break;
         }
+        
+        SpawnTerrain(_middleTerrain);
     }
     
     private void SpawnTerrain(GameObject terrain)
@@ -68,5 +82,11 @@ public class TerrainGenerator : MonoBehaviour
         GameObject terrainObject = Instantiate(terrain, _currentPosition, Quaternion.identity, _terrainParent);
         
         _terrainList.Add(terrainObject);
+
+        if (_terrainList.Count > _maxTerrainCount)
+        {
+            Destroy(_terrainList[0]);
+            _terrainList.RemoveAt(0);
+        }
     }
 }

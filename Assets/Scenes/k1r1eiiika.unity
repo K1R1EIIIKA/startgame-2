@@ -379,7 +379,7 @@ MonoBehaviour:
   _middleTerrain: {fileID: 7079464361608508981, guid: 2d2a3e4e17cfc3f47aa10948c583ac68, type: 3}
   _enemyOvertookTerrain: {fileID: 1679616290791081588, guid: a21d251024534b14898e1b7cb7f99659, type: 3}
   _terrainParent: {fileID: 240794949}
-  _maxTerrainCount: 5
+  _maxTerrainCount: 10
 --- !u!4 &1254804377
 Transform:
   m_ObjectHideFlags: 0
