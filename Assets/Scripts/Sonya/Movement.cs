@@ -1,0 +1,72 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using TMPro;
+
+public class Movement : MonoBehaviour
+{
+    private CharacterController controller;
+    private PlayerInput _input;
+    public Animator animator;
+      private static Vector3 direction;
+    [SerializeField] private float forwardSpeed;
+    [SerializeField] private float _moveSpeed=10;
+    [SerializeField] private TextMeshProUGUI speedText;
+    public Vector2 _moveDirection;
+    //[SerializeField] private float Gravity = -20;
+    
+   void Start()
+    {speedText.text = "Speed: "+forwardSpeed;
+        controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+    }
+    public void GravityChange(InputAction.CallbackContext context) 
+    {
+        if (context.performed){
+         if (!MagnitTrigger.magnitActive)
+            return;
+
+        direction.y =10;
+       }
+    }
+public void OnMove(InputAction.CallbackContext context) 
+    {
+        if (!PlayerManager.isGameStarted)
+            return;
+            Debug.Log("move");
+      _moveDirection = context.ReadValue<Vector2>();
+      float scaledMoveSpeed = _moveSpeed;
+      //Vector3 moveDirection = new Vector3(_moveDirection.x,0,0);
+      //transform.position+=moveDirection*scaledMoveSpeed;
+     direction.x=_moveDirection.x*scaledMoveSpeed;
+       //controller.Move(moveDirection*scaledMoveSpeed);
+    }
+
+    public static void GravityChangeDown(){
+        if (direction.y>0)
+        direction.y -=20;
+        Debug.Log("yes");
+    }
+
+    void Update()
+    {
+
+        if (!PlayerManager.isGameStarted)
+            return;
+            speedText.text = "Speed: "+forwardSpeed;
+        forwardSpeed += 0.1f * Time.deltaTime;
+        direction.z = forwardSpeed;
+//Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
+    //    if (transform.position != targetPosition)
+       // {
+       // Vector3 diff = targetPosition - transform.position;
+        //Vector3 moveDir = diff.normalized * 25 * Time.deltaTime;
+        //if (moveDir.sqrMagnitude < diff.sqrMagnitude)
+       //     controller.Move(moveDir);
+       // else
+         //   controller.Move(diff);
+        //}
+        controller.Move(direction * Time.deltaTime);
+    }
+}
