@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tile 1
   m_EditorClassIdentifier: 
   _name: 
-  _lenght: 0
+  _lenght: 35
   _scene: {fileID: 0}

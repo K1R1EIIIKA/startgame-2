@@ -17,7 +17,8 @@ public class Movement : MonoBehaviour
     //[SerializeField] private float Gravity = -20;
     
    void Start()
-    {speedText.text = "Speed: "+forwardSpeed;
+    {   forwardSpeed=4;
+        speedText.text = "Speed: "+forwardSpeed;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
