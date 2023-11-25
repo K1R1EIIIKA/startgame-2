@@ -1734,6 +1734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curveStrength: 0
+  m_CurveStrengthID: 663
 --- !u!114 &1650691857
 MonoBehaviour:
   m_ObjectHideFlags: 0

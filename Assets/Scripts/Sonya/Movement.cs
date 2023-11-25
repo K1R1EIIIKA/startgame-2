@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     private PlayerInput _input;
     public Animator animator;
       private static Vector3 direction;
-    [SerializeField] private float forwardSpeed;
+    public static float forwardSpeed;
     [SerializeField] private float _moveSpeed=10;
     [SerializeField] private TextMeshProUGUI speedText;
     public Vector2 _moveDirection;
