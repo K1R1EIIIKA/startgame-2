@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -26,6 +27,7 @@ public class TerrainGenerator : MonoBehaviour
 
     private Vector3 _currentPosition = Vector3.zero;
     private float _offset;
+    private List<float> _offsetList = new();
     private List<GameObject> _terrainList = new();
     
     private void Awake()
@@ -47,7 +49,8 @@ public class TerrainGenerator : MonoBehaviour
 
     private void Update()
     {
-        if (_player.position.z - _offset > _terrainList[0].transform.position.z)
+        Debug.Log(string.Join(" ", _offsetList.Select(x => x.ToString())));
+        if (_player.position.z - _offsetList[1] > _terrainList[0].transform.position.z)
         {
             RemoveTerrain();
             SpawnRandomTerrain();
@@ -92,15 +95,34 @@ public class TerrainGenerator : MonoBehaviour
         GameObject terrainObject = Instantiate(terrain, _currentPosition, Quaternion.identity, _terrainParent);
         
         _terrainList.Add(terrainObject);
+        _offsetList.Add(_offset);
 
         if (_terrainList.Count > _maxTerrainCount)
+        {
             RemoveTerrain();
+        }
     }
 
+    private void ReplaceTerrain(GameObject terrain)
+    {
+        Transform road = Array.Find(_terrainList[^1].GetComponentsInChildren<Transform>(), x => x.name == "Road");
+        Transform newRoad = Array.Find(terrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
+        float bigObjectOffset = (road.localScale.y - newRoad.localScale.y) / 100;
+
+        float offset = road.localScale.y / 50 - bigObjectOffset;
+        Vector3 spawnPos = _terrainList[2].transform.position;
+        // spawnPos.z -= offset;
+
+        GameObject newTerrain = Instantiate(_enemyOvertookTerrain, spawnPos, Quaternion.identity, _terrainParent);
+        _terrainList.Insert(2, newTerrain);
+    }
+
+    
     private void RemoveTerrain(int index = 0)
     {
         Destroy(_terrainList[index]);
         _terrainList.RemoveAt(index);
+        _offsetList.RemoveAt(index);
     }
 
     public void SpawnPlayerOvertookTerrain()
@@ -112,7 +134,7 @@ public class TerrainGenerator : MonoBehaviour
     public void SpawnEnemyOvertookTerrain()
     {
         RemoveTerrain(2);
-        
+        ReplaceTerrain(_enemyOvertookTerrain);
         // SpawnTerrain(_middleTerrain);
     }
 }
