@@ -9,7 +9,9 @@ public class PlayerManager : MonoBehaviour
    public static bool isGameStarted;
    public static float distance;
    public static bool playerIsUp;
+    public static bool hitHappened;
     [SerializeField] private GameObject gameOverPanel;
+     [SerializeField] private GameObject lowSpeedImage;
     //[SerializeField] private GameObject startText;
     [SerializeField] private TextMeshProUGUI distanceText;
     [SerializeField] private TextMeshProUGUI record;
@@ -25,7 +27,6 @@ public class PlayerManager : MonoBehaviour
         gameOverPanel.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
      distance+=0.01f;
@@ -40,11 +41,15 @@ public class PlayerManager : MonoBehaviour
             PlayerPrefs.SetFloat("Record",distance);
             record.text = "Record: "+(int)distance;
         }
-              
-        //if (){
-        //    isGameStarted = true;
-         //   Destroy(startText);
-        //}
+        if (hitHappened){
+            StartCoroutine(LowSpeedImage());
+        }
     }
-    
+    IEnumerator LowSpeedImage()
+    {
+        lowSpeedImage.SetActive(true);
+        hitHappened=false;
+        yield return new WaitForSeconds(1.5f);
+        lowSpeedImage.SetActive(false);
+    }
 }
