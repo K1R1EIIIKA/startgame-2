@@ -1451,11 +1451,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstTerrain: {fileID: 4316071882859467382, guid: a27385e61eeb1554da911a2d2f19cc13, type: 3}
   _obstacleTerrains:
-  - {fileID: 4316071882859467382, guid: 8611c0e5ac34dfb47ace433b376f5b0a, type: 3}
+  - {fileID: 4316071882859467382, guid: c432faceeb5ad03469708ea1b077c37b, type: 3}
   _panHittingTerrains:
   - {fileID: 4316071882859467382, guid: c432faceeb5ad03469708ea1b077c37b, type: 3}
   _gravitationTerrains:
-  - {fileID: 4316071882859467382, guid: c125a75ea0abcb44d92e1d7bc2cc7e90, type: 3}
+  - {fileID: 4316071882859467382, guid: c432faceeb5ad03469708ea1b077c37b, type: 3}
   _playerOvertookTerrain: {fileID: 0}
   _enemyOvertookTerrain: {fileID: 0}
   _terrainParent: {fileID: 435437299}
