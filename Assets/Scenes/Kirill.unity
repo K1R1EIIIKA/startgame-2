@@ -795,6 +795,56 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4901520229815847006, guid: 82c80de7b580d6e42afac19bc2cc3ac1, type: 3}
   m_PrefabInstance: {fileID: 1046301113}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &629465150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 629465152}
+  - component: {fileID: 629465151}
+  m_Layer: 0
+  m_Name: NpcManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &629465151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629465150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d3a8809ff4af4478f7c94e930f3d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _npcList: []
+  _pncParent: {fileID: 0}
+  _speedRange: {x: 0, y: 0}
+  _countRange: {x: 0, y: 0}
+  _lifeTime: 0
+  _spawnOffset: 3
+--- !u!4 &629465152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629465150}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -47.96554, y: 22.00348, z: 167.23856}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &697601286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,6 +1508,7 @@ MonoBehaviour:
   - {fileID: 4316071882859467382, guid: c432faceeb5ad03469708ea1b077c37b, type: 3}
   _playerOvertookTerrain: {fileID: 4316071882859467382, guid: 539db02b38c7a2e4db9d3b1ceff2af5a, type: 3}
   _enemyOvertookTerrain: {fileID: 4316071882859467382, guid: 090fc7634f1640449948262028b6b3d4, type: 3}
+  _winTerrain: {fileID: 0}
   _terrainParent: {fileID: 435437299}
   _maxTerrainCount: 5
   _player: {fileID: 356165521}
@@ -1494,3 +1545,4 @@ SceneRoots:
   - {fileID: 2103258341}
   - {fileID: 2104048789}
   - {fileID: 435437299}
+  - {fileID: 629465152}
