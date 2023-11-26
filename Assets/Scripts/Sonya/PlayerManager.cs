@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
    public static bool gameOver;
    public static bool isGameStarted;
    public static float distance;
+   public static bool playerIsUp;
     [SerializeField] private GameObject gameOverPanel;
     //[SerializeField] private GameObject startText;
     [SerializeField] private TextMeshProUGUI distanceText;
@@ -16,7 +17,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        record.text = "Record: "+ PlayerPrefs.GetFloat("Record",0).ToString();
+        record.text = "Record: "+ PlayerPrefs.GetFloat("Record",0).ToString("0.0");
         gameOver = false;
         Time.timeScale = 1;
         isGameStarted = true;
@@ -33,7 +34,7 @@ public class PlayerManager : MonoBehaviour
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
         }
-        distanceText.text = ""+(int)distance;
+        distanceText.text = "Distance: "+(int)distance;
         if (distance>= PlayerPrefs.GetFloat("Record", 0))
         {
             PlayerPrefs.SetFloat("Record",distance);

@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     private CharacterController controller;
     private PlayerInput _input;
     public Animator animator;
-      private static Vector3 direction;
+    private static Vector3 direction;
     public static float forwardSpeed;
     [SerializeField] private float _moveSpeed=10;
     [SerializeField] private TextMeshProUGUI speedText;
@@ -27,20 +27,19 @@ public class Movement : MonoBehaviour
         if (context.performed){
          if (!MagnitTrigger.magnitActive)
             return;
-
-        direction.y =10;
+         direction.y =10;
        }
     }
 public void OnMove(InputAction.CallbackContext context) 
     {
         if (!PlayerManager.isGameStarted)
             return;
-            Debug.Log("move");
+      Debug.Log("move");
       _moveDirection = context.ReadValue<Vector2>();
       float scaledMoveSpeed = _moveSpeed;
       //Vector3 moveDirection = new Vector3(_moveDirection.x,0,0);
       //transform.position+=moveDirection*scaledMoveSpeed;
-     direction.x=_moveDirection.x*scaledMoveSpeed;
+      direction.x=_moveDirection.x*scaledMoveSpeed;
        //controller.Move(moveDirection*scaledMoveSpeed);
     }
 
@@ -55,7 +54,7 @@ public void OnMove(InputAction.CallbackContext context)
 
         if (!PlayerManager.isGameStarted)
             return;
-            speedText.text = "Speed: "+forwardSpeed;
+            speedText.text = "Speed: "+forwardSpeed.ToString("0.0");
         forwardSpeed += 0.1f * Time.deltaTime;
         direction.z = forwardSpeed;
 //Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;

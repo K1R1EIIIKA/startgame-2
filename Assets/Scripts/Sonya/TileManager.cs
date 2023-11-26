@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
-  [SerializeField] private Tile[] tileprefabs;
+    [SerializeField] private Tile[] tileprefabs;
     [SerializeField] private float zSpawn = 0;
     [SerializeField] private float tileLength = 30;
     [SerializeField] private int numberOfTiles = 5;
