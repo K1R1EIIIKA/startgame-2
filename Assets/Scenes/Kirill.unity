@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.8
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: d9207f439dce5eb4cae7d9b656abd745, type: 2}
@@ -180,6 +180,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 908094201}
     - target: {fileID: 8407332177640985149, guid: 2724d56f9f4634b4293899e4347f0a00, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 356165534}
+    - target: {fileID: 8407332177640985149, guid: 2724d56f9f4634b4293899e4347f0a00, type: 3}
       propertyPath: distanceText
       value: 
       objectReference: {fileID: 1994575898}
@@ -187,6 +191,10 @@ PrefabInstance:
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 1415296671}
+    - target: {fileID: 8407332177640985149, guid: 2724d56f9f4634b4293899e4347f0a00, type: 3}
+      propertyPath: lowSpeedImage
+      value: 
+      objectReference: {fileID: 559322915}
     - target: {fileID: 8407332177640985149, guid: 2724d56f9f4634b4293899e4347f0a00, type: 3}
       propertyPath: _enemyCountText
       value: 
@@ -629,7 +637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240872623}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17922896, y: 0, z: 0, w: 0.9838074}
+  m_LocalRotation: {x: 0.17922896, y: 1e-45, z: 0, w: 0.9838074}
   m_LocalPosition: {x: 0, y: 4.02, z: -9.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -708,11 +716,11 @@ PrefabInstance:
     - target: {fileID: 3610590453972539851, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: tileprefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 8c83b0c33a1f4414fb503911b08b633d, type: 2}
+      objectReference: {fileID: 11400000, guid: 66dbe9cf61bdb904cb6ca9043effe259, type: 2}
     - target: {fileID: 3610590453972539851, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: tileprefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 8c83b0c33a1f4414fb503911b08b633d, type: 2}
+      objectReference: {fileID: 11400000, guid: 66dbe9cf61bdb904cb6ca9043effe259, type: 2}
     - target: {fileID: 3610590453972539851, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: tileprefabs.Array.data[3]
       value: 
@@ -746,6 +754,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddb32acd500e454e87b50f1549290e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!143 &356165534 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 5720271217842697147, guid: af9202c66f6ae3c4f8d2078c228184a9, type: 3}
+  m_PrefabInstance: {fileID: 1982833489}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &559322915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4901520229815847006, guid: 82c80de7b580d6e42afac19bc2cc3ac1, type: 3}
+  m_PrefabInstance: {fileID: 1046301113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &697601286
 GameObject:
   m_ObjectHideFlags: 0
