@@ -19,6 +19,7 @@ public class TerrainGenerator : MonoBehaviour
     
     [SerializeField] private GameObject _playerOvertookTerrain;
     [SerializeField] private GameObject _enemyOvertookTerrain;
+    [SerializeField] private GameObject _winTerrain;
     [SerializeField] private Transform _terrainParent;
     
     [Header("Other")]
@@ -86,9 +87,8 @@ public class TerrainGenerator : MonoBehaviour
     {
         if (_terrainList.Count > 0)
         {
+            var bigObjectOffset = GetObjectOffset(^1, terrain);
             Transform road = Array.Find(_terrainList[^1].GetComponentsInChildren<Transform>(), x => x.name == "Road");
-            Transform newRoad = Array.Find(terrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
-            float bigObjectOffset = (road.localScale.y - newRoad.localScale.y) / 100;
 
             _offset = road.localScale.y / 50 - bigObjectOffset;
             _currentPosition.z += _offset;
@@ -100,26 +100,36 @@ public class TerrainGenerator : MonoBehaviour
         _offsetList.Add(_offset);
 
         if (_terrainList.Count > _maxTerrainCount)
-        {
             RemoveTerrain();
-        }
     }
 
     private void ReplaceTerrain(GameObject terrain)
     {
-        Transform road = Array.Find(_terrainList[^1].GetComponentsInChildren<Transform>(), x => x.name == "Road");
-        Transform newRoad = Array.Find(terrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
-        float bigObjectOffset = (road.localScale.y - newRoad.localScale.y) / 100;
+        var bigObjectOffset = GetObjectOffset(2, terrain);
 
-        float offset = road.localScale.y / 50 - bigObjectOffset;
         Vector3 spawnPos = _startReplacedPos;
-        // spawnPos.z -= offset;
+        spawnPos.z -= bigObjectOffset;
+        _currentPosition.z -= bigObjectOffset * 2;
+        
+        for (int i = 2; i < _terrainList.Count; i++)
+        {
+            Vector3 pos = _terrainList[i].transform.position;
+            _terrainList[i].transform.position = new Vector3(pos.x, pos.y, pos.z - bigObjectOffset * 2);
+        }
 
         GameObject newTerrain = Instantiate(_enemyOvertookTerrain, spawnPos, Quaternion.identity, _terrainParent);
         _terrainList.Insert(2, newTerrain);
     }
 
-    
+    private float GetObjectOffset(Index listIndex, GameObject terrain)
+    {
+        Transform road = Array.Find(_terrainList[listIndex].GetComponentsInChildren<Transform>(), x => x.name == "Road");
+        Transform newRoad = Array.Find(terrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
+        float bigObjectOffset = (road.localScale.y - newRoad.localScale.y) / 100;
+        
+        return bigObjectOffset;
+    }
+
     private void RemoveTerrain(int index = 0)
     {
         if (index != 0)
@@ -132,15 +142,21 @@ public class TerrainGenerator : MonoBehaviour
 
     public void SpawnPlayerOvertookTerrain()
     {
-        SpawnTerrain(_playerOvertookTerrain);
-        // SpawnTerrain(_middleTerrain);
+        RemoveTerrain(2);
+        ReplaceTerrain(_playerOvertookTerrain);
     }
     
     public void SpawnEnemyOvertookTerrain()
     {
         RemoveTerrain(2);
         ReplaceTerrain(_enemyOvertookTerrain);
+    }
+
+    public void SpawnWinTerrain()
+    {
+        for (int i = 2; i < _terrainList.Count; i++)
+            RemoveTerrain(i);
         
-        // SpawnTerrain(_middleTerrain);
+        ReplaceTerrain(_winTerrain);
     }
 }
