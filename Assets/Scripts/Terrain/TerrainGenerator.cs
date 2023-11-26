@@ -10,18 +10,22 @@ public class TerrainGenerator : MonoBehaviour
     public static TerrainGenerator Instance;
     
     [Header("Terrains")]
+    [SerializeField] private GameObject _firstTerrain;
+    
     [SerializeField] private List<GameObject> _obstacleTerrains;
     [SerializeField] private List<GameObject> _panHittingTerrains;
     [SerializeField] private List<GameObject> _gravitationTerrains;
+    
     [SerializeField] private GameObject _playerOvertookTerrain;
-    [SerializeField] private GameObject _middleTerrain;
     [SerializeField] private GameObject _enemyOvertookTerrain;
     [SerializeField] private Transform _terrainParent;
     
     [Header("Other")]
-    [SerializeField] private int _maxTerrainCount = 10;
+    [SerializeField] private int _maxTerrainCount = 5;
+    [SerializeField] private Transform _player;
 
     private Vector3 _currentPosition = Vector3.zero;
+    private float _offset;
     private List<GameObject> _terrainList = new();
     
     private void Awake()
@@ -34,8 +38,20 @@ public class TerrainGenerator : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < 5; i++)
+        SpawnTerrain(_firstTerrain);
+        for (int i = 0; i < _maxTerrainCount-1; i++)
         {
+            SpawnRandomTerrain();
+        }
+    }
+
+    private void Update()
+    {
+        Debug.Log(_player.position.z - _offset + " " + _terrainList[0].transform.position.z);
+        
+        if (_player.position.z - _offset > _terrainList[0].transform.position.z)
+        {
+            RemoveFirstTerrain();
             SpawnRandomTerrain();
         }
     }
@@ -55,7 +71,7 @@ public class TerrainGenerator : MonoBehaviour
                 break;
         }
         
-        SpawnTerrain(_middleTerrain);
+        // SpawnTerrain(_middleTerrain);
     }
 
     private GameObject GetRandomTerrain(List<GameObject> terrains)
@@ -66,29 +82,38 @@ public class TerrainGenerator : MonoBehaviour
     private void SpawnTerrain(GameObject terrain)
     {
         if (_terrainList.Count > 0)
-            _currentPosition.x += _terrainList[^1].transform.localScale.x / 2 + terrain.transform.localScale.x / 2;
-        
+        {
+            Transform road = Array.Find(_terrainList[^1].GetComponentsInChildren<Transform>(), x => x.name == "Road");
+            Transform newRoad = Array.Find(terrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
+            float bigObjectOffset = (road.localScale.y - newRoad.localScale.y) / 100;
+
+            _offset = road.localScale.y / 50 - bigObjectOffset;
+            _currentPosition.z += _offset;
+        }
+
         GameObject terrainObject = Instantiate(terrain, _currentPosition, Quaternion.identity, _terrainParent);
         
         _terrainList.Add(terrainObject);
 
         if (_terrainList.Count > _maxTerrainCount)
-        {
-            Destroy(_terrainList[0]);
-            _terrainList.RemoveAt(0);
-        }
+            RemoveFirstTerrain();
     }
 
-    // TODO: надо сделать распознавание террейна под которым игрок находится чтобы заменить его на обгон или наоборот
+    private void RemoveFirstTerrain()
+    {
+        Destroy(_terrainList[0]);
+        _terrainList.RemoveAt(0);
+    }
+
     public void SpawnPlayerOvertookTerrain()
     {
         SpawnTerrain(_playerOvertookTerrain);
-        SpawnTerrain(_middleTerrain);
+        // SpawnTerrain(_middleTerrain);
     }
     
     public void SpawnEnemyOvertookTerrain()
     {
         SpawnTerrain(_enemyOvertookTerrain);
-        SpawnTerrain(_middleTerrain);
+        // SpawnTerrain(_middleTerrain);
     }
 }
