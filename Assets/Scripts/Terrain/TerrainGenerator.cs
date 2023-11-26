@@ -21,8 +21,6 @@ public class TerrainGenerator : MonoBehaviour
     [Header("Other")]
     [SerializeField] private int _maxTerrainCount = 10;
 
-    private PlayerControls _controls;
-
     private Vector3 _currentPosition = Vector3.zero;
     private List<GameObject> _terrainList = new();
     
@@ -32,10 +30,6 @@ public class TerrainGenerator : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
-
-        _controls = new PlayerControls();
-
-        _controls.PlayerInput.Tap.performed += _ => SpawnRandomTerrain();
     }
 
     private void Start()
@@ -46,32 +40,27 @@ public class TerrainGenerator : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        _controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _controls.Disable();
-    }
-
-    private void SpawnRandomTerrain()
+    public void SpawnRandomTerrain()
     {
         switch (Random.Range(0, 3))
         {
             case 0:
-                SpawnTerrain(_obstacleTerrains[Random.Range(0, _obstacleTerrains.Count)]);
+                SpawnTerrain(GetRandomTerrain(_obstacleTerrains));
                 break;
             case 1:
-                SpawnTerrain(_panHittingTerrains[Random.Range(0, _obstacleTerrains.Count)]);
+                SpawnTerrain(GetRandomTerrain(_panHittingTerrains));
                 break;
             case 2:
-                SpawnTerrain(_gravitationTerrains[Random.Range(0, _obstacleTerrains.Count)]);
+                SpawnTerrain(GetRandomTerrain(_gravitationTerrains));
                 break;
         }
         
         SpawnTerrain(_middleTerrain);
+    }
+
+    private GameObject GetRandomTerrain(List<GameObject> terrains)
+    {
+        return terrains[Random.Range(0, terrains.Count)];
     }
     
     private void SpawnTerrain(GameObject terrain)
@@ -88,5 +77,18 @@ public class TerrainGenerator : MonoBehaviour
             Destroy(_terrainList[0]);
             _terrainList.RemoveAt(0);
         }
+    }
+
+    // TODO: надо сделать распознавание террейна под которым игрок находится чтобы заменить его на обгон или наоборот
+    public void SpawnPlayerOvertookTerrain()
+    {
+        SpawnTerrain(_playerOvertookTerrain);
+        SpawnTerrain(_middleTerrain);
+    }
+    
+    public void SpawnEnemyOvertookTerrain()
+    {
+        SpawnTerrain(_enemyOvertookTerrain);
+        SpawnTerrain(_middleTerrain);
     }
 }

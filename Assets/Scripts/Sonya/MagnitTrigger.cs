@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class MagnitTrigger : MonoBehaviour
 {
-    
-     public static bool magnitActive;
-     void Start()
-     {
-      
-     }
+    public static bool magnitActive;
 
-     void OnTriggerEnter(Collider other) {
-        
-        if (other.tag=="Player"){
-          magnitActive=true;
-        }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            magnitActive = true;
     }
-    void  OnTriggerExit(Collider other) {
-        if (other.tag=="Player"){
-          magnitActive=false;
-        }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            magnitActive = false;
     }
 }
