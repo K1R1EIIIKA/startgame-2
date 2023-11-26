@@ -35,7 +35,7 @@ public class TileManager : MonoBehaviour
     {
         GameObject go = Instantiate(tileprefabs[tileIndex].Scene, transform.forward * zSpawn, transform.rotation);
         activeTiles.Add(go);
-        tileLength = tileprefabs[tileIndex].Length;
+        tileLength = tileprefabs[0].Length;
         zSpawn += tileprefabs[tileIndex].Length;
     }
 
