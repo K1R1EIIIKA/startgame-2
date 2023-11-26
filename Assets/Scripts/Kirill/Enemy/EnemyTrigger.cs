@@ -6,12 +6,13 @@ using Random = UnityEngine.Random;
 
 public class EnemyTrigger : MonoBehaviour
 {
-    [SerializeField] private float _zOffset = 5;
-    
     private GameObject _enemy;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (EnemySpawn.IsEnemy)
+            return;
+        
         if (other.CompareTag("Player"))
         {
             Vector3 playerPos = other.transform.position;
@@ -24,7 +25,7 @@ public class EnemyTrigger : MonoBehaviour
             else
                 randNum = new List<int> { 0, 1 }[Random.Range(0, 2)];
             
-            Vector3 spawnPoint = new Vector3(2.5f * randNum, 0, playerPos.z - _zOffset);
+            Vector3 spawnPoint = new Vector3(2.5f * randNum, 0, playerPos.z - EnemySpawn.Instance.SpawnOffset);
             _enemy = EnemySpawn.Instance.SpawnEnemy(spawnPoint);
         }
     }

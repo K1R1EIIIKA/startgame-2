@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6563762262173694527}
   - component: {fileID: -1093328766062712098}
   - component: {fileID: 8342438338041797614}
+  - component: {fileID: 9078827706473131773}
   - component: {fileID: 129982120697272494}
   m_Layer: 0
   m_Name: Enemy
@@ -69,9 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2383d9dad98e1340b44abb5d0dcf149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyData: {fileID: 11400000, guid: 72df9daebb661f543b5a10ec4605e8a3, type: 2}
-  moveSpeed: 2
-  distanceThreshold: 0.1
+  lerpSpeed: 2
 --- !u!54 &8342438338041797614
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -99,6 +98,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &9078827706473131773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6158391743436317000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949d6ceafc0efe44782f09a84024e64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackPrepareTime: 2
+  _attackTime: 3
 --- !u!143 &129982120697272494
 CharacterController:
   m_ObjectHideFlags: 0

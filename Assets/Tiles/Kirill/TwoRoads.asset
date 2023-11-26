@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 317010ff7106c6a4d8563f6445dd88ef, type: 3}
-  m_Name: EnemyTile
+  m_Name: TwoRoads
   m_EditorClassIdentifier: 
   _name: 
-  _lenght: 35
-  _scene: {fileID: 4316071882859467382, guid: c432faceeb5ad03469708ea1b077c37b, type: 3}
+  _lenght: 0
+  _scene: {fileID: 0}

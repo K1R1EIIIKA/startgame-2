@@ -44,7 +44,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c25390f0bbdae174abcd95fad45243bd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1499.9999
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c25390f0bbdae174abcd95fad45243bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -143,7 +143,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c25390f0bbdae174abcd95fad45243bd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1499.9999
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c25390f0bbdae174abcd95fad45243bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -243,6 +243,22 @@ PrefabInstance:
     - target: {fileID: 6091579869364856031, guid: 14dc4bd5d80401f479f27300eee8f86f, type: 3}
       propertyPath: m_Name
       value: EnemyTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153293951248690448, guid: 14dc4bd5d80401f479f27300eee8f86f, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4868926
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153293951248690448, guid: 14dc4bd5d80401f479f27300eee8f86f, type: 3}
+      propertyPath: m_Size.z
+      value: 1.3498065
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153293951248690448, guid: 14dc4bd5d80401f479f27300eee8f86f, type: 3}
+      propertyPath: m_Center.y
+      value: -0.24344656
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153293951248690448, guid: 14dc4bd5d80401f479f27300eee8f86f, type: 3}
+      propertyPath: m_Center.z
+      value: 0.10808217
       objectReference: {fileID: 0}
     - target: {fileID: 6170545591654294388, guid: 14dc4bd5d80401f479f27300eee8f86f, type: 3}
       propertyPath: m_LocalPosition.x

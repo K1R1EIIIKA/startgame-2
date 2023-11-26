@@ -10,28 +10,41 @@ public class EnemyMovement : MonoBehaviour
         
     private Transform _player;
     private CharacterController _controller;
-    private float _speed;
-    private bool _isLinked ;
+    
+    public static float Speed;
+    public static bool IsLinked;
+    public static bool CanAttack;
+    public static bool IsAttacked;
 
     private void Awake()
     {
-        _speed = Movement.forwardSpeed * 2;
+        Speed = Movement.forwardSpeed * 2;
         _player = Movement.Instance.transform;
         _controller = GetComponent<CharacterController>();
+
+        IsAttacked = false;
     }
 
     private void Update()
     {
-        if (transform.position.z > _player.position.z)
-            _isLinked = true;
+        if (!IsAttacked && transform.position.z > _player.position.z)
+        {
+            IsLinked = true;
+            CanAttack = true;
+        }
 
-        if (_isLinked)
-            PrepareHit();
+        if (IsLinked)
+            LinkMove();
         else
-            _controller.Move(Vector3.forward * (_speed * Time.deltaTime));
+            Move();
     }
 
-    private void PrepareHit()
+    private void Move()
+    {
+        _controller.Move(Vector3.forward * (Speed * Time.deltaTime));
+    }
+
+    private void LinkMove()
     {
         Vector3 targetPosition = new Vector3(_player.position.x, transform.position.y, transform.position.z);
 
@@ -42,5 +55,13 @@ public class EnemyMovement : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed * Time.deltaTime);
         transform.position = new Vector3(transform.position.x, 0, _player.position.z);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out BoxCollider boxCollider) && other.CompareTag("Player"))
+        {
+            Debug.Log(boxCollider.gameObject.name + " " + boxCollider.enabled);
+        }
     }
 }
