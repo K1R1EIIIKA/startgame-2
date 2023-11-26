@@ -29,6 +29,8 @@ public class TerrainGenerator : MonoBehaviour
     private float _offset;
     private List<float> _offsetList = new();
     private List<GameObject> _terrainList = new();
+
+    private Vector3 _startReplacedPos;
     
     private void Awake()
     {
@@ -49,7 +51,7 @@ public class TerrainGenerator : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(string.Join(" ", _offsetList.Select(x => x.ToString())));
+        // Debug.Log(string.Join(" ", _offsetList.Select(x => x.ToString())));
         if (_player.position.z - _offsetList[1] > _terrainList[0].transform.position.z)
         {
             RemoveTerrain();
@@ -110,7 +112,7 @@ public class TerrainGenerator : MonoBehaviour
         float bigObjectOffset = (road.localScale.y - newRoad.localScale.y) / 100;
 
         float offset = road.localScale.y / 50 - bigObjectOffset;
-        Vector3 spawnPos = _terrainList[2].transform.position;
+        Vector3 spawnPos = _startReplacedPos;
         // spawnPos.z -= offset;
 
         GameObject newTerrain = Instantiate(_enemyOvertookTerrain, spawnPos, Quaternion.identity, _terrainParent);
@@ -120,6 +122,9 @@ public class TerrainGenerator : MonoBehaviour
     
     private void RemoveTerrain(int index = 0)
     {
+        if (index != 0)
+            _startReplacedPos = _terrainList[index].transform.position;
+        
         Destroy(_terrainList[index]);
         _terrainList.RemoveAt(index);
         _offsetList.RemoveAt(index);
@@ -135,6 +140,7 @@ public class TerrainGenerator : MonoBehaviour
     {
         RemoveTerrain(2);
         ReplaceTerrain(_enemyOvertookTerrain);
+        
         // SpawnTerrain(_middleTerrain);
     }
 }
