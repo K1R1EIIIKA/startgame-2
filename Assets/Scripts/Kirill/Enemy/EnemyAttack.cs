@@ -29,6 +29,8 @@ public class EnemyAttack : MonoBehaviour
         if (EnemyMovement.IsHit) return;
         
         Debug.Log("enemy attacked");
+        
+        TerrainGenerator.Instance.SpawnEnemyOvertookTerrain();
 
         EnemySpawn.EnemyCount++;
         EnemyMovement.IsAttacked = true;

@@ -47,11 +47,9 @@ public class TerrainGenerator : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_player.position.z - _offset + " " + _terrainList[0].transform.position.z);
-        
         if (_player.position.z - _offset > _terrainList[0].transform.position.z)
         {
-            RemoveFirstTerrain();
+            RemoveTerrain();
             SpawnRandomTerrain();
         }
     }
@@ -96,13 +94,13 @@ public class TerrainGenerator : MonoBehaviour
         _terrainList.Add(terrainObject);
 
         if (_terrainList.Count > _maxTerrainCount)
-            RemoveFirstTerrain();
+            RemoveTerrain();
     }
 
-    private void RemoveFirstTerrain()
+    private void RemoveTerrain(int index = 0)
     {
-        Destroy(_terrainList[0]);
-        _terrainList.RemoveAt(0);
+        Destroy(_terrainList[index]);
+        _terrainList.RemoveAt(index);
     }
 
     public void SpawnPlayerOvertookTerrain()
@@ -113,7 +111,8 @@ public class TerrainGenerator : MonoBehaviour
     
     public void SpawnEnemyOvertookTerrain()
     {
-        SpawnTerrain(_enemyOvertookTerrain);
+        RemoveTerrain(2);
+        
         // SpawnTerrain(_middleTerrain);
     }
 }
