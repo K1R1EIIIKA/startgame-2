@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EnemyTile
   m_EditorClassIdentifier: 
   _name: 
-  _lenght: 35
+  _lenght: 40
   _scene: {fileID: 4316071882859467382, guid: c432faceeb5ad03469708ea1b077c37b, type: 3}

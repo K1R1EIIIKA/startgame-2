@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform _player;
     private CharacterController _controller;
     
+    public static bool IsHit;
     public static float Speed;
     public static bool IsLinked;
     public static bool CanAttack;
@@ -23,10 +24,17 @@ public class EnemyMovement : MonoBehaviour
         _controller = GetComponent<CharacterController>();
 
         IsAttacked = false;
+        IsLinked = false;
     }
 
     private void Update()
     {
+        if (IsHit)
+        {
+            HitMove();
+            return;
+        }
+        
         if (!IsAttacked && transform.position.z > _player.position.z)
         {
             IsLinked = true;
@@ -43,7 +51,7 @@ public class EnemyMovement : MonoBehaviour
     {
         _controller.Move(Vector3.forward * (Speed * Time.deltaTime));
     }
-
+    
     private void LinkMove()
     {
         Vector3 targetPosition = new Vector3(_player.position.x, transform.position.y, transform.position.z);
@@ -57,11 +65,20 @@ public class EnemyMovement : MonoBehaviour
         transform.position = new Vector3(transform.position.x, 0, _player.position.z);
     }
 
+    private void HitMove()
+    {
+        if (transform.position.x > _player.position.x)
+            transform.position += new Vector3(EnemySpawn.Instance.HitForce, 0, 20) * Time.deltaTime;
+        else
+            transform.position += new Vector3(-EnemySpawn.Instance.HitForce, 0, 20) * Time.deltaTime;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out BoxCollider boxCollider) && other.CompareTag("Player"))
         {
-            Debug.Log(boxCollider.gameObject.name + " " + boxCollider.enabled);
+            Debug.Log("attacked");
+            IsHit = true;
         }
     }
 }

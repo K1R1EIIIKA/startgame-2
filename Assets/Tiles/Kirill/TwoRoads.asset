@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TwoRoads
   m_EditorClassIdentifier: 
   _name: 
-  _lenght: 0
-  _scene: {fileID: 0}
+  _lenght: 60
+  _scene: {fileID: 6414599983736918347, guid: 710f00c2900d6644f8628c7ff22c3108, type: 3}

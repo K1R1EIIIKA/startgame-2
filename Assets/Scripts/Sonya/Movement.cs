@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
     {
         if (!PlayerManager.isGameStarted)
             return;
-        Debug.Log("move");
+        // Debug.Log("move");
         _moveDirection = context.ReadValue<Vector2>();
         float scaledMoveSpeed = _moveSpeed;
         //Vector3 moveDirection = new Vector3(_moveDirection.x,0,0);

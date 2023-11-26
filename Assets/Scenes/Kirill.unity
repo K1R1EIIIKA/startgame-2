@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: d6951466a65a68840bb5e367b5e1cc62, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d9207f439dce5eb4cae7d9b656abd745, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.8533714, g: 0.77530426, b: 0.9738758, a: 1}
+  m_IndirectSpecularColor: {r: 0.8246467, g: 0.77506524, b: 0.85530084, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -187,6 +187,10 @@ PrefabInstance:
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 1415296671}
+    - target: {fileID: 8407332177640985149, guid: 2724d56f9f4634b4293899e4347f0a00, type: 3}
+      propertyPath: _enemyCountText
+      value: 
+      objectReference: {fileID: 1046301114}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -632,7 +636,7 @@ Transform:
   m_Children:
   - {fileID: 238383570}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 28.92, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.3, y: 0, z: 0}
 --- !u!1001 &284089242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1010,6 +1014,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82c80de7b580d6e42afac19bc2cc3ac1, type: 3}
+--- !u!114 &1046301114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4207387322589472796, guid: 82c80de7b580d6e42afac19bc2cc3ac1, type: 3}
+  m_PrefabInstance: {fileID: 1046301113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1391198004
 GameObject:
   m_ObjectHideFlags: 0

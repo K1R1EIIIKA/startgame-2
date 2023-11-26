@@ -32,7 +32,7 @@ public class EnemyTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (_enemy)
+        if (other.CompareTag("Player") && _enemy)
             EnemySpawn.Instance.RemoveEnemy();
     }
 }

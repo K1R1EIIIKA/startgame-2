@@ -6,16 +6,20 @@ using UnityEngine.Serialization;
 
 public class EnemySpawn : MonoBehaviour
 {
+    [Header("Enemy")]
     [SerializeField] private GameObject _enemyPrefab;
-    
-    private GameObject _enemy;
-    
     public float SpawnOffset = 3;
     public float AttackPrepareTime = 0.5f;
     public float AttackTime = 1.0f;
 
+    [Header("Player")]
+    public float HitForce = 30;
+
     public static EnemySpawn Instance;
     public static bool IsEnemy;
+    public static int EnemyCount = 0;
+    
+    private GameObject _enemy;
 
     private void Awake()
     {
@@ -29,6 +33,7 @@ public class EnemySpawn : MonoBehaviour
     {
         _enemy = Instantiate(_enemyPrefab, position, Quaternion.identity);
         IsEnemy = true;
+        EnemyMovement.IsHit = false;
         PlayerAttack.NumAttacks = 1;
         
         return _enemy;

@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
         if (!EnemySpawn.IsEnemy || !_canAttack || NumAttacks == 0)
             return;
         
-        Debug.Log("attackkkkkkkkk");
+        Debug.Log("player attack");
         StartCoroutine(Attack());
         _canAttack = false;
         NumAttacks = 0;
@@ -38,7 +38,6 @@ public class PlayerAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         _hitCollider.enabled = true;
-
         yield return new WaitForSeconds(0.5f);
         _hitCollider.enabled = false;
     }
