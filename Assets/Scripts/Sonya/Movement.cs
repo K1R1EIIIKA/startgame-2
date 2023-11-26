@@ -63,6 +63,7 @@ public class Movement : MonoBehaviour
         if (direction.y > 0)
             direction.y -= 20;
         Debug.Log("yes");
+       // animator.SetBool("MoveUp",true);
     }
 
     void Update()
