@@ -274,6 +274,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigObstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 4316071882859467382, guid: 76697a0530aca8e4e8acdcd48eec620f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -382,6 +386,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1761993720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1761993721}
+  m_Layer: 0
+  m_Name: RoadList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1761993721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761993720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1831912556 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1024989898717370738, guid: 82c80de7b580d6e42afac19bc2cc3ac1, type: 3}
@@ -586,11 +621,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3597452903525525729, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016739609
+      value: -0.000000016739609
       objectReference: {fileID: 0}
     - target: {fileID: 3597452903525525729, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000039805887
+      value: 0.0000000039805887
       objectReference: {fileID: 0}
     - target: {fileID: 3597452903525525729, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -742,6 +777,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1331980243}
+    - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
+      propertyPath: _terrainParent
+      value: 
+      objectReference: {fileID: 1761993721}
+    - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
+      propertyPath: _enemyOvertookTerrain
+      value: 
+      objectReference: {fileID: 1679616290791081588, guid: a21d251024534b14898e1b7cb7f99659, type: 3}
+    - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
+      propertyPath: _playerOvertookTerrain
+      value: 
+      objectReference: {fileID: 4333416727499907869, guid: a56c31cc741c1dd40a780023571d8bd6, type: 3}
+    - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
+      propertyPath: _obstacleTerrains.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
+      propertyPath: _gravitationTerrains.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
+      propertyPath: _obstacleTerrains.Array.data[0]
+      value: 
+      objectReference: {fileID: 4316071882859467382, guid: 76697a0530aca8e4e8acdcd48eec620f, type: 3}
+    - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
+      propertyPath: _gravitationTerrains.Array.data[0]
+      value: 
+      objectReference: {fileID: 4316071882859467382, guid: c125a75ea0abcb44d92e1d7bc2cc7e90, type: 3}
     - target: {fileID: 2923644484829618641, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1007,3 +1074,4 @@ SceneRoots:
   - {fileID: 887775183918736974}
   - {fileID: 574525323}
   - {fileID: 396607040}
+  - {fileID: 1761993721}
