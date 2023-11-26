@@ -548,7 +548,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650691852}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17922896, y: 0, z: 0, w: 0.9838074}
+  m_LocalRotation: {x: 0.17922896, y: 1e-45, z: 0, w: 0.9838074}
   m_LocalPosition: {x: 0, y: 4.02, z: -9.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -951,6 +951,14 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1331980243}
+    - target: {fileID: 3610590453972539851, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
+      propertyPath: tileprefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610590453972539851, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
+      propertyPath: tileprefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7195839449010069268, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: m_Name
       value: TileManager

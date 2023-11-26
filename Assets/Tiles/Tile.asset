@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tile
   m_EditorClassIdentifier: 
   _name: 
-  _lenght: 35
+  _lenght: 30
   _scene: {fileID: 4316071882859467382, guid: 81356e8338d914648be569fd85e8729a, type: 3}
