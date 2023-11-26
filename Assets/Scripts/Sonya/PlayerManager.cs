@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     public static float distance;
     public static bool playerIsUp;
     public static bool hitHappened;
+    [SerializeField]private CharacterController controller;
     [SerializeField] private GameObject gameOverPanel;
 
     [SerializeField] private GameObject lowSpeedImage;
@@ -51,15 +52,18 @@ public class PlayerManager : MonoBehaviour
 
         if (hitHappened)
         {
+            Movement.forwardSpeed-=1;
             StartCoroutine(LowSpeedImage());
         }
     }
 
-    IEnumerator LowSpeedImage()
-    {
-        lowSpeedImage.SetActive(true);
-        hitHappened = false;
-        yield return new WaitForSeconds(1.5f);
-        lowSpeedImage.SetActive(false);
-    }
+  IEnumerator LowSpeedImage()
+{
+      lowSpeedImage.SetActive(true);
+      hitHappened=false;
+     controller.enabled=false;
+      yield return new WaitForSeconds(1.5f);
+     lowSpeedImage.SetActive(false);
+     controller.enabled=true;
+} 
 }
