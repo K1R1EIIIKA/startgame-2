@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemyData;
+    [SerializeField] private GameObject _enemyPrefab;
     
     private GameObject _enemy;
 
@@ -21,7 +22,7 @@ public class EnemySpawn : MonoBehaviour
     
     public GameObject SpawnEnemy(Vector3 position)
     {
-        _enemy = Instantiate(_enemyData.Prefab, position, Quaternion.identity);
+        _enemy = Instantiate(_enemyPrefab, position, Quaternion.identity);
         return _enemy;
     }
 

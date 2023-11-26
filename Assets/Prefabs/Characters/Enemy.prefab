@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 862305060071934464}
-  - component: {fileID: 4936848796749213227}
   - component: {fileID: 6563762262173694527}
   - component: {fileID: -1093328766062712098}
   - component: {fileID: 8342438338041797614}
+  - component: {fileID: 129982120697272494}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -36,29 +36,6 @@ Transform:
   - {fileID: 4495957914106343023}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4936848796749213227
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6158391743436317000}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.44
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.38, z: 0}
 --- !u!95 &6563762262173694527
 Animator:
   serializedVersion: 5
@@ -93,6 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyData: {fileID: 11400000, guid: 72df9daebb661f543b5a10ec4605e8a3, type: 2}
+  moveSpeed: 2
+  distanceThreshold: 0.1
 --- !u!54 &8342438338041797614
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -120,6 +99,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!143 &129982120697272494
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6158391743436317000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.68
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1.29, z: 0}
 --- !u!1 &8822184106712934549
 GameObject:
   m_ObjectHideFlags: 0
