@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI distanceText;
     [SerializeField] private TextMeshProUGUI record;
     [SerializeField] private TextMeshProUGUI _enemyCountText;
+    [SerializeField] private float _distanceScale = 5;
 
 
     void Start()
@@ -38,15 +39,16 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         _enemyCountText.text = EnemySpawn.EnemyCount.ToString();
-
-        distance += 0.01f;
+        
+        distance = Vector3.Distance(Vector3.back * 4.42f, controller.transform.position) * _distanceScale;
+        Debug.Log(distance);
         if (gameOver)
         {
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
         }
 
-        distanceText.text = "Distance: " + (int)distance;
+        distanceText.text = ((int)distance).ToString();
         if (distance >= PlayerPrefs.GetFloat("Record", 0))
         {
             PlayerPrefs.SetFloat("Record", distance);

@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         forwardSpeed = 4;
-        speedText.text = "Speed: " + forwardSpeed;
+        speedText.text = forwardSpeed.ToString();
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
@@ -73,8 +73,9 @@ public class Movement : MonoBehaviour
     {
         if (!PlayerManager.isGameStarted)
             return;
-        
-        speedText.text = "Speed: " + forwardSpeed.ToString("0.0");
+
+        float speed = forwardSpeed * 3.33f;
+        speedText.text = speed.ToString("0");
         forwardSpeed += 0.1f * Time.deltaTime;
         direction.z = forwardSpeed;
 //Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
