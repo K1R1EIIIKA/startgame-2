@@ -16,6 +16,8 @@ public class PlayerManager : MonoBehaviour
     public static bool IsWon;
     public static bool IsLose;
     public static PlayerManager Instance;
+    
+    public GameObject IconAttack;
 
     [Header("Components")]
     [SerializeField] private CharacterController controller;
@@ -23,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     //[SerializeField] private Animator animator;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject _winCanvas;
+    [SerializeField] private GameObject _loseCanvas;
     [SerializeField] private GameObject lowSpeedImage;
 
     //[SerializeField] private GameObject startText;
@@ -66,7 +69,7 @@ public class PlayerManager : MonoBehaviour
         _enemyCountText.text = EnemySpawn.EnemyCount + "/" + MaxEnemyCount;
         if (EnemySpawn.EnemyCount >= MaxEnemyCount)
         {
-            TerrainGenerator.Instance.SpawnLoseTerrain();
+            Lose();
         }
         
         
@@ -109,5 +112,11 @@ public class PlayerManager : MonoBehaviour
     {
         Time.timeScale = 0;
         _winCanvas.SetActive(true);
+    }
+
+    public void Lose()
+    {
+        Time.timeScale = 0;
+        _loseCanvas.SetActive(true);
     }
 }

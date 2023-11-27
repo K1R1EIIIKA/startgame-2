@@ -25,12 +25,15 @@ public class EnemyAttack : MonoBehaviour
         if (EnemyMovement.IsHit)
             yield break;
         
+        PlayerManager.Instance.IconAttack.SetActive(true);
+        
         yield return new WaitForSeconds(EnemySpawn.Instance.AttackPrepareTime);
         Debug.Log("enemy preparing");
         _animator.SetTrigger("ReadyHit");
         
         yield return new WaitForSeconds(EnemySpawn.Instance.AttackTime);
         Attack();
+        PlayerManager.Instance.IconAttack.SetActive(false);
     }
 
     private void Attack()
