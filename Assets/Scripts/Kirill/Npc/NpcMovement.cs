@@ -5,4 +5,6 @@ using UnityEngine;
 public class NpcMovement : MonoBehaviour
 {
     public float Speed;
+    public int Directon;
+    
 }

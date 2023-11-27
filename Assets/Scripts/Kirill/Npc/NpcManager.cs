@@ -34,11 +34,11 @@ public class NpcManager : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            SpawnNpc(Random.Range(_speedRange.x, _speedRange.y + 1));
+            SpawnNpc(Random.Range(_speedRange.x, _speedRange.y + 1), direction);
         }
     }
 
-    private void SpawnNpc(float speed)
+    private void SpawnNpc(float speed, int direction)
     {
         float posX = Random.Range(-2.5f, 2.5f);
         float posZ = _player.position.z - _spawnOffset;
@@ -46,6 +46,7 @@ public class NpcManager : MonoBehaviour
 
         NpcMovement movement = npc.GetComponent<NpcMovement>();
         movement.Speed = speed;
+        movement.Directon = direction;
 
         StartCoroutine(RemoveNpc(npc));
     }

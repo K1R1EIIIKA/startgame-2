@@ -89,9 +89,12 @@ public class TerrainGenerator : MonoBehaviour
         {
             var bigObjectOffset = GetObjectOffset(^1, terrain);
             Transform road = Array.Find(_terrainList[^1].GetComponentsInChildren<Transform>(), x => x.name == "Road");
+            Transform newRoad = Array.Find(terrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
 
+            
             _offset = road.localScale.y / 50 - bigObjectOffset;
-            _currentPosition.z += _offset;
+            Debug.Log(road.localScale.y + " " + bigObjectOffset + " " + _offset);
+            _currentPosition.z += newRoad.localScale.y;
         }
 
         GameObject terrainObject = Instantiate(terrain, _currentPosition, Quaternion.identity, _terrainParent);
