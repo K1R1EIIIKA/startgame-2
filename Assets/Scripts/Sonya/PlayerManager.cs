@@ -11,6 +11,8 @@ public class PlayerManager : MonoBehaviour
     public static float distance;
     public static bool playerIsUp;
     public static bool hitHappened;
+    public static int NpcCount = 0;
+    
     [SerializeField] private CharacterController controller;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject gameOverPanel;
