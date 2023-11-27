@@ -858,7 +858,7 @@ MonoBehaviour:
   _npcList:
   - {fileID: 6158391743436317000, guid: f657b6768dc18a84d9c42850a61353e8, type: 3}
   _pncParent: {fileID: 161654963}
-  _speedRange: {x: 4, y: 6}
+  _speedRange: {x: 15, y: 20}
   _countRange: {x: 2, y: 5}
   _lifeTime: 5
   _spawnOffset: 3
@@ -1139,6 +1139,18 @@ PrefabInstance:
     - target: {fileID: 4447004442834205582, guid: 82c80de7b580d6e42afac19bc2cc3ac1, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357409375283690770, guid: 82c80de7b580d6e42afac19bc2cc3ac1, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c80bec5cf0b71c4196bb3730411f568, type: 2}
+    - target: {fileID: 5357409375283690770, guid: 82c80de7b580d6e42afac19bc2cc3ac1, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 855954842201499636, guid: 4c80bec5cf0b71c4196bb3730411f568, type: 2}
+    - target: {fileID: 5357409375283690770, guid: 82c80de7b580d6e42afac19bc2cc3ac1, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1533,13 +1545,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstTerrain: {fileID: 4316071882859467382, guid: a27385e61eeb1554da911a2d2f19cc13, type: 3}
   _obstacleTerrains:
-  - {fileID: 4316071882859467382, guid: c432faceeb5ad03469708ea1b077c37b, type: 3}
+  - {fileID: 4316071882859467382, guid: a2a1459455161564f90389034de1106b, type: 3}
   _panHittingTerrains:
-  - {fileID: 4316071882859467382, guid: c432faceeb5ad03469708ea1b077c37b, type: 3}
+  - {fileID: 4316071882859467382, guid: 88983456be7fb39429a368f5e25adf04, type: 3}
   _gravitationTerrains:
-  - {fileID: 4316071882859467382, guid: c432faceeb5ad03469708ea1b077c37b, type: 3}
+  - {fileID: 4316071882859467382, guid: 88983456be7fb39429a368f5e25adf04, type: 3}
   _playerOvertookTerrain: {fileID: 4316071882859467382, guid: 539db02b38c7a2e4db9d3b1ceff2af5a, type: 3}
-  _enemyOvertookTerrain: {fileID: 4316071882859467382, guid: 090fc7634f1640449948262028b6b3d4, type: 3}
+  _enemyOvertookTerrain: {fileID: 4316071882859467382, guid: 383c6ce2718309d4e9d4faedfddfc75e, type: 3}
   _winTerrain: {fileID: 0}
   _terrainParent: {fileID: 435437299}
   _maxTerrainCount: 5

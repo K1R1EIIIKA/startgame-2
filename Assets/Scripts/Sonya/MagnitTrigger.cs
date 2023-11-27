@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MagnitTrigger : MonoBehaviour
 {
-    public static bool magnitActive=false;
+    public static bool magnitActive;
 
     void OnTriggerEnter(Collider other)
     {

@@ -11,9 +11,9 @@ public class PlayerManager : MonoBehaviour
     public static float distance;
     public static bool playerIsUp;
     public static bool hitHappened;
-    public static int NpcCount = 0;
-    
+
     [SerializeField] private CharacterController controller;
+
     //[SerializeField] private Animator animator;
     [SerializeField] private GameObject gameOverPanel;
 
@@ -55,7 +55,6 @@ public class PlayerManager : MonoBehaviour
 
         if (hitHappened)
         {
-            
             Movement.forwardSpeed -= 1;
             StartCoroutine(LowSpeedImage());
         }
@@ -66,10 +65,10 @@ public class PlayerManager : MonoBehaviour
         lowSpeedImage.SetActive(true);
         hitHappened = false;
         controller.enabled = false;
-        Movement.animator.SetBool("Hit",true);
+        Movement.animator.SetBool("Hit", true);
         yield return new WaitForSeconds(1f);
         lowSpeedImage.SetActive(false);
         controller.enabled = true;
-        Movement.animator.SetBool("Hit",false);
+        Movement.animator.SetBool("Hit", false);
     }
 }

@@ -31,6 +31,7 @@ public class NpcManager : MonoBehaviour
     public void SpawnAllNpc(int direction)
     {
         int count = Random.Range(_countRange.x, _countRange.y + 1);
+        EnemySpawn.EnemyCount += count;
 
         for (int i = 0; i < count; i++)
         {
@@ -40,13 +41,25 @@ public class NpcManager : MonoBehaviour
 
     private void SpawnNpc(float speed, int direction)
     {
+        Vector3 playerPos = _player.position;
+        int randNum;
+
+        if (Math.Abs(playerPos.x) < 0.75f)
+            randNum = new List<int> { -1, 1 }[Random.Range(0, 2)];
+        else if (playerPos.x >= 0.75f)
+            randNum = new List<int> { -1, 0 }[Random.Range(0, 2)];
+        else
+            randNum = new List<int> { 0, 1 }[Random.Range(0, 2)];
+            
+        Vector3 spawnPoint = new Vector3(2.5f * randNum, 0, playerPos.z - _spawnOffset);
+        
         float posX = Random.Range(-2.5f, 2.5f);
         float posZ = _player.position.z - _spawnOffset;
-        GameObject npc = Instantiate(_npcList[Random.Range(0, _npcList.Count)], new Vector3(posX, 0, posZ), Quaternion.identity, _pncParent);
+        GameObject npc = Instantiate(_npcList[Random.Range(0, _npcList.Count)], spawnPoint, Quaternion.identity, _pncParent);
 
         NpcMovement movement = npc.GetComponent<NpcMovement>();
         movement.Speed = speed;
-        movement.Directon = direction;
+        movement.Direction = direction;
 
         StartCoroutine(RemoveNpc(npc));
     }

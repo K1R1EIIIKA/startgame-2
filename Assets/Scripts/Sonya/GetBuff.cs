@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GetBuff : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other) {
-        
-        if (other.tag=="Player"){
-          Movement.forwardSpeed+=1f;
-          Destroy(gameObject);
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Movement.forwardSpeed += 1f;
+            Destroy(gameObject);
         }
     }
 }

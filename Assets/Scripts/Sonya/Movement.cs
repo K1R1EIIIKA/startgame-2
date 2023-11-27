@@ -41,7 +41,8 @@ public class Movement : MonoBehaviour
         {
             if (!MagnitTrigger.magnitActive)
                 return;
-                animator.SetBool("MoveUp",true);
+            
+            animator.SetBool("MoveUp", true);
             direction.y = 10;
         }
     }
@@ -63,14 +64,16 @@ public class Movement : MonoBehaviour
     {
         if (direction.y > 0)
             direction.y -= 20;
+        
         Debug.Log("yes");
-      animator.SetBool("MoveUp",false);
+        animator.SetBool("MoveUp", false);
     }
 
     void Update()
     {
         if (!PlayerManager.isGameStarted)
             return;
+        
         speedText.text = "Speed: " + forwardSpeed.ToString("0.0");
         forwardSpeed += 0.1f * Time.deltaTime;
         direction.z = forwardSpeed;

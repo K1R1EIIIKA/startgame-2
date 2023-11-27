@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class ObstacleCollision : MonoBehaviour
 {
-    
-
-     void OnTriggerEnter(Collider other) {
-        
-        if (other.tag=="Player"){
-           PlayerManager.hitHappened=true;
-           StartCoroutine(Destroy());
-          
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerManager.hitHappened = true;
+            StartCoroutine(Destroy());
         }
     }
+
     IEnumerator Destroy()
     {
         yield return new WaitForSeconds(0.6f);
-       Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
