@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.8251616, g: 0.77507854, b: 0.8556943, a: 1}
+  m_IndirectSpecularColor: {r: 0.8246467, g: 0.77506524, b: 0.85530084, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1034,11 +1034,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3597452903525525729, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000480957
+      value: -0.0000000480957
       objectReference: {fileID: 0}
     - target: {fileID: 3597452903525525729, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000007434991
+      value: 0.000000007434991
       objectReference: {fileID: 0}
     - target: {fileID: 3597452903525525729, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1269,7 +1269,7 @@ PrefabInstance:
     - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: _winTerrain
       value: 
-      objectReference: {fileID: 7526010399864595804, guid: 311e7629cf98a10488f0d5397cce7ddd, type: 3}
+      objectReference: {fileID: 7526010399864595804, guid: d9523ff35cd48384da3ac84d6bb44ebe, type: 3}
     - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: _terrainParent
       value: 
@@ -1277,7 +1277,7 @@ PrefabInstance:
     - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: _enemyOvertookTerrain
       value: 
-      objectReference: {fileID: 4316071882859467382, guid: 383c6ce2718309d4e9d4faedfddfc75e, type: 3}
+      objectReference: {fileID: 4316071882859467382, guid: 00e92b7e88cc5f4468dd8ec39a2ff618, type: 3}
     - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: _playerOvertookTerrain
       value: 
@@ -1297,7 +1297,7 @@ PrefabInstance:
     - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: _panHittingTerrains.Array.data[0]
       value: 
-      objectReference: {fileID: 4316071882859467382, guid: a2a1459455161564f90389034de1106b, type: 3}
+      objectReference: {fileID: 4316071882859467382, guid: 5404aa26ca5299b40bf549386e1f5366, type: 3}
     - target: {fileID: 2615858331018191831, guid: f1cc89f2b7267b646b5bf5aeff638d6e, type: 3}
       propertyPath: _gravitationTerrains.Array.data[0]
       value: 
