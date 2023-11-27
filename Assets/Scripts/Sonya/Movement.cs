@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
 {
     private CharacterController controller;
     private PlayerInput _input;
-    public Animator animator;
+    public static Animator animator;
     private static Vector3 direction;
     public static float forwardSpeed;
     [SerializeField] private float _moveSpeed = 10;
@@ -41,6 +41,7 @@ public class Movement : MonoBehaviour
         {
             if (!MagnitTrigger.magnitActive)
                 return;
+                animator.SetBool("MoveUp",true);
             direction.y = 10;
         }
     }
@@ -63,7 +64,7 @@ public class Movement : MonoBehaviour
         if (direction.y > 0)
             direction.y -= 20;
         Debug.Log("yes");
-       // animator.SetBool("MoveUp",true);
+      animator.SetBool("MoveUp",false);
     }
 
     void Update()

@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     public static int NpcCount = 0;
     
     [SerializeField] private CharacterController controller;
-    [SerializeField] private Animator animator;
+    //[SerializeField] private Animator animator;
     [SerializeField] private GameObject gameOverPanel;
 
     [SerializeField] private GameObject lowSpeedImage;
@@ -66,10 +66,10 @@ public class PlayerManager : MonoBehaviour
         lowSpeedImage.SetActive(true);
         hitHappened = false;
         controller.enabled = false;
-        animator.SetBool("Hit",true);
+        Movement.animator.SetBool("Hit",true);
         yield return new WaitForSeconds(1f);
         lowSpeedImage.SetActive(false);
         controller.enabled = true;
-        animator.SetBool("Hit",false);
+        Movement.animator.SetBool("Hit",false);
     }
 }

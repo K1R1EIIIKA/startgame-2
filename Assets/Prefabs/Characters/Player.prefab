@@ -232,6 +232,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 862305060071934464}
     m_Modifications:
+    - target: {fileID: 205640084042847898, guid: 7815b4eac8f9fd0409d50f2adbb3b78d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f626f8cc1b5c4a4495a5badb1f394de, type: 2}
     - target: {fileID: 793217686596272234, guid: 7815b4eac8f9fd0409d50f2adbb3b78d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.43745446
@@ -276,6 +280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Chick_anim
       objectReference: {fileID: 0}
+    - target: {fileID: 6525357841858116877, guid: 7815b4eac8f9fd0409d50f2adbb3b78d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f626f8cc1b5c4a4495a5badb1f394de, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
