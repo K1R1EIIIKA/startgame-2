@@ -7,7 +7,6 @@ public class PlayerAttack : MonoBehaviour
 {
     private Collider _hitCollider;
     private bool _canAttack;
-    
     public static int NumAttacks = 0;
 
     private void Awake()
@@ -36,7 +35,9 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        yield return new WaitForSeconds(1);
+         Movement.animator.SetBool("", true);// a
+        yield return new WaitForSeconds(1); 
+         FindObjectOfType<AudioManager>().PlaySound("HitPan");
         _hitCollider.enabled = true;
         yield return new WaitForSeconds(0.5f);
         _hitCollider.enabled = false;

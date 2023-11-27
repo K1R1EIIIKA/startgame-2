@@ -20,6 +20,7 @@ public class EnemyAttack : MonoBehaviour
         
         yield return new WaitForSeconds(EnemySpawn.Instance.AttackPrepareTime);
         Debug.Log("enemy preparing");
+        
         yield return new WaitForSeconds(EnemySpawn.Instance.AttackTime);
         Attack();
     }

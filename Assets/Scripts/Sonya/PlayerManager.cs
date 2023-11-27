@@ -74,6 +74,7 @@ public class PlayerManager : MonoBehaviour
 
         if (hitHappened)
         {
+              FindObjectOfType<AudioManager>().PlaySound("HitObj");
             Movement.forwardSpeed -= 1;
             StartCoroutine(LowSpeedImage());
         }
