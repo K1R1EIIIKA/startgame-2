@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
     public static float distance;
     public static bool playerIsUp;
     public static bool hitHappened;
+
+    public static bool IsWon;
     public static PlayerManager Instance;
 
     [Header("Components")]
