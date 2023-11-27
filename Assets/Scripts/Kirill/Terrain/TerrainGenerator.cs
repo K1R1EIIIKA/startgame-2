@@ -31,6 +31,8 @@ public class TerrainGenerator : MonoBehaviour
 
     private Vector3 _startReplacedPos;
 
+    private bool _isSpawnNewTerrains = true;
+
     private void Awake()
     {
         if (Instance == null)
@@ -51,7 +53,7 @@ public class TerrainGenerator : MonoBehaviour
     private void Update()
     {
         // Debug.Log(string.Join(" ", _offsetList.Select(x => x.ToString())));
-        if (_player.position.z - _offsetList[1] > _terrainList[0].transform.position.z)
+        if (_player.position.z - _offsetList[1] > _terrainList[0].transform.position.z && _isSpawnNewTerrains)
         {
             RemoveTerrain();
             SpawnRandomTerrain();
@@ -163,9 +165,18 @@ public class TerrainGenerator : MonoBehaviour
 
     public void SpawnWinTerrain()
     {
-        for (int i = 2; i < _terrainList.Count; i++)
-            RemoveTerrain(i);
-
-        ReplaceTerrain(_winTerrain);
+        PlayerManager.IsWon = true;
+        RemoveTerrain(2);
+        
+        Vector3 spawnPos = _startReplacedPos;
+        Transform newRoad = Array.Find(_winTerrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
+        spawnPos.z -= newRoad.localScale.y;
+        _currentPosition.z -= newRoad.localScale.y * 2;
+        
+        Instantiate(_winTerrain, spawnPos, Quaternion.identity, _terrainParent);
+        
+        _isSpawnNewTerrains = false;
+        RemoveTerrain(3);
+        Destroy(_terrainList[^1]);
     }
 }

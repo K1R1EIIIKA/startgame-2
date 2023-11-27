@@ -180,6 +180,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 493381604}
     - target: {fileID: 8407332177640985149, guid: 2724d56f9f4634b4293899e4347f0a00, type: 3}
+      propertyPath: _winCanvas
+      value: 
+      objectReference: {fileID: 455691780}
+    - target: {fileID: 8407332177640985149, guid: 2724d56f9f4634b4293899e4347f0a00, type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 356165534}
@@ -819,6 +823,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &455691780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8336710322489814288, guid: 5fef3601ae2a815469f66bb0ca42ab39, type: 3}
+  m_PrefabInstance: {fileID: 8267086636784154237}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &461077877 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8882231065565245311, guid: 2d9e0e4bfedc4ea4db68b8e8f4febe97, type: 3}
@@ -1387,9 +1396,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 356165521}
     - target: {fileID: 964187773454415936, guid: 4ebee72f6db6c9849bb9a70f26df074b, type: 3}
+      propertyPath: _winTerrain
+      value: 
+      objectReference: {fileID: 7526010399864595804, guid: 311e7629cf98a10488f0d5397cce7ddd, type: 3}
+    - target: {fileID: 964187773454415936, guid: 4ebee72f6db6c9849bb9a70f26df074b, type: 3}
       propertyPath: _terrainParent
       value: 
       objectReference: {fileID: 435437299}
+    - target: {fileID: 964187773454415936, guid: 4ebee72f6db6c9849bb9a70f26df074b, type: 3}
+      propertyPath: _obstacleTerrains.Array.data[0]
+      value: 
+      objectReference: {fileID: 4316071882859467382, guid: a2a1459455161564f90389034de1106b, type: 3}
+    - target: {fileID: 964187773454415936, guid: 4ebee72f6db6c9849bb9a70f26df074b, type: 3}
+      propertyPath: _panHittingTerrains.Array.data[0]
+      value: 
+      objectReference: {fileID: 7526010399864595804, guid: c3b094be02ca8734a9e081438064315e, type: 3}
+    - target: {fileID: 964187773454415936, guid: 4ebee72f6db6c9849bb9a70f26df074b, type: 3}
+      propertyPath: _gravitationTerrains.Array.data[0]
+      value: 
+      objectReference: {fileID: 4316071882859467382, guid: a2a1459455161564f90389034de1106b, type: 3}
     - target: {fileID: 5185781161848560970, guid: 4ebee72f6db6c9849bb9a70f26df074b, type: 3}
       propertyPath: m_Name
       value: TileSpawner
@@ -1862,6 +1887,10 @@ PrefabInstance:
     - target: {fileID: 8336710322489814288, guid: 5fef3601ae2a815469f66bb0ca42ab39, type: 3}
       propertyPath: m_Name
       value: WinCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336710322489814288, guid: 5fef3601ae2a815469f66bb0ca42ab39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

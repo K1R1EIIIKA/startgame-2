@@ -75,8 +75,9 @@ public class Movement : MonoBehaviour
             return;
 
         float speed = forwardSpeed * 3.33f;
-        if (speed >= 100f)
-            PlayerManager.Instance.Win();
+        if (speed >= 20f && !PlayerManager.IsWon)
+            TerrainGenerator.Instance.SpawnWinTerrain();
+        
         speedText.text = speed.ToString("0");
         forwardSpeed += 0.1f * Time.deltaTime;
         direction.z = forwardSpeed;
