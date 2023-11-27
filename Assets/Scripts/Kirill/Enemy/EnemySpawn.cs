@@ -23,6 +23,8 @@ public class EnemySpawn : MonoBehaviour
 
     private void Awake()
     {
+        EnemyCount = 0;
+        
         if (Instance == null)
             Instance = this;
         else

@@ -11,26 +11,27 @@ public class MenuNavigation : MonoBehaviour
     
     public void SetPause()
     {
-        if (_isPaused)
+        if (!_isPaused)
             Pause();
         else 
             UnPause();
-
-        _isPaused = !_isPaused;
     }
     
     public void Pause()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0.0001f;
+        _isPaused = true;
         _pauseCanvas.SetActive(true);
     }
     
     public void UnPause()
     {
         Time.timeScale = 1;
+        _isPaused = false;
         _pauseCanvas.SetActive(false);
     }
 
+    
     public void RestartLevel()
     {
         Time.timeScale = 1;
