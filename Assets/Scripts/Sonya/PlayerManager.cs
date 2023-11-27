@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,20 +12,35 @@ public class PlayerManager : MonoBehaviour
     public static float distance;
     public static bool playerIsUp;
     public static bool hitHappened;
+    public static PlayerManager Instance;
 
+    [Header("Components")]
     [SerializeField] private CharacterController controller;
 
     //[SerializeField] private Animator animator;
     [SerializeField] private GameObject gameOverPanel;
-
+    [SerializeField] private GameObject _winCanvas;
     [SerializeField] private GameObject lowSpeedImage;
 
     //[SerializeField] private GameObject startText;
     [SerializeField] private TextMeshProUGUI distanceText;
     [SerializeField] private TextMeshProUGUI record;
     [SerializeField] private TextMeshProUGUI _enemyCountText;
+    
+    [Header("Properties")]
     [SerializeField] private float _distanceScale = 5;
 
+    public float WinSpeed = 100;
+    public int MaxEnemyCount = 20;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else 
+            Destroy(gameObject);
+        
+    }
 
     void Start()
     {
@@ -38,7 +54,8 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        _enemyCountText.text = EnemySpawn.EnemyCount.ToString();
+        _enemyCountText.text = EnemySpawn.EnemyCount + "/" + MaxEnemyCount;
+        
         
         distance = Vector3.Distance(Vector3.back * 4.42f, controller.transform.position) * _distanceScale;
         Debug.Log(distance);
@@ -72,5 +89,11 @@ public class PlayerManager : MonoBehaviour
         lowSpeedImage.SetActive(false);
         controller.enabled = true;
         Movement.animator.SetBool("Hit", false);
+    }
+
+    public void Win()
+    {
+        Time.timeScale = 0;
+        _winCanvas.SetActive(true);
     }
 }
