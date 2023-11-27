@@ -14,7 +14,7 @@ public class SuperComics : MonoBehaviour
     {
         if (IsFirst)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0.33f;
             IsFirst = false;
             _comics.SetActive(true);
             StartCoroutine(StartButton());
@@ -23,7 +23,7 @@ public class SuperComics : MonoBehaviour
 
     private IEnumerator StartButton()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         _button.SetActive(true);
     }
 

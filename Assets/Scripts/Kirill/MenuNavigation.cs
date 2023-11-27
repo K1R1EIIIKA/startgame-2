@@ -17,6 +17,7 @@ public class MenuNavigation : MonoBehaviour
             UnPause();
     }
     
+    
     public void Pause()
     {
         Time.timeScale = 0.0001f;
