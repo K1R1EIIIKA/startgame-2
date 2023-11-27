@@ -30,6 +30,7 @@ public class TerrainGenerator : MonoBehaviour
     private List<GameObject> _terrainList = new();
 
     private Vector3 _startReplacedPos;
+    private float _startReplacedLength;
 
     private bool _isSpawnNewTerrains = true;
 
@@ -112,16 +113,22 @@ public class TerrainGenerator : MonoBehaviour
     {
         var bigObjectOffset = GetObjectOffset(2, terrain);
 
+        // _startReplacedLength = Array.Find(_terrainList[1].GetComponentsInChildren<Transform>(), x => x.name == "Road").localScale.y;
+
+        Debug.Log(_startReplacedPos + " " + _startReplacedLength);
+        
         Vector3 spawnPos = _startReplacedPos;
         Transform newRoad = Array.Find(terrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
-        spawnPos.z -= newRoad.localScale.y;
-        _currentPosition.z -= newRoad.localScale.y * 2;
+        spawnPos.z -= 30 * (_startReplacedLength / 30 - 1);
+        _currentPosition.z -= 30 * (_startReplacedLength / 30)*2;
 
         for (int i = 2; i < _terrainList.Count; i++)
         {
             Vector3 pos = _terrainList[i].transform.position;
-            _terrainList[i].transform.position = new Vector3(pos.x, pos.y, pos.z - newRoad.localScale.y);
+            Debug.Log(newRoad.localScale.y + " " + pos.z);
+            _terrainList[i].transform.position = new Vector3(pos.x, pos.y, pos.z - (30 * (_startReplacedLength / 30 - 1)));
         }
+        
 
         GameObject newTerrain = Instantiate(_enemyOvertookTerrain, spawnPos, Quaternion.identity, _terrainParent);
         _terrainList.Insert(2, newTerrain);
@@ -143,8 +150,13 @@ public class TerrainGenerator : MonoBehaviour
     private void RemoveTerrain(int index = 0)
     {
         if (index != 0)
+        {
             _startReplacedPos = _terrainList[index].transform.position;
+            _startReplacedLength =
+                Array.Find(_terrainList[index].GetComponentsInChildren<Transform>(), x => x.name == "Road").localScale.y;
+        }
 
+        
         Destroy(_terrainList[index]);
         _terrainList.RemoveAt(index);
         // Debug.Log(String.Join(" ", _offsetList.Select(x => x.ToString())));
@@ -170,8 +182,8 @@ public class TerrainGenerator : MonoBehaviour
         
         Vector3 spawnPos = _startReplacedPos;
         Transform newRoad = Array.Find(_winTerrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
-        spawnPos.z -= newRoad.localScale.y;
-        _currentPosition.z -= newRoad.localScale.y * 2;
+        spawnPos.z -= newRoad.localScale.y * 2;
+        _currentPosition.z -= newRoad.localScale.y * 4;
         
         Instantiate(_winTerrain, spawnPos, Quaternion.identity, _terrainParent);
         
