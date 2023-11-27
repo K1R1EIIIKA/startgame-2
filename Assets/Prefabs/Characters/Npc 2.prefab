@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 129982120697272494}
   - component: {fileID: -7264107960842018795}
   m_Layer: 0
-  m_Name: Npc
+  m_Name: Npc 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,6 +175,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1779897768073588197, guid: 256bbc542e61c214cb3ecbff1087f3f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060978983228117193, guid: 256bbc542e61c214cb3ecbff1087f3f2, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

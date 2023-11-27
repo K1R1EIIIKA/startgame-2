@@ -53,6 +53,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Oause"",
+                    ""type"": ""Button"",
+                    ""id"": ""88eeb602-f02b-471a-9f77-e2cbb64817a1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,17 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8951c123-1dc0-40ca-ab3c-72119b1ae525"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Oause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -138,6 +158,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_GravityChange = m_Player.FindAction("GravityChange", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Oause = m_Player.FindAction("Oause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -202,6 +223,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_GravityChange;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Oause;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
@@ -209,6 +231,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @GravityChange => m_Wrapper.m_Player_GravityChange;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @Oause => m_Wrapper.m_Player_Oause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -227,6 +250,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Oause.started += instance.OnOause;
+            @Oause.performed += instance.OnOause;
+            @Oause.canceled += instance.OnOause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -240,6 +266,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Oause.started -= instance.OnOause;
+            @Oause.performed -= instance.OnOause;
+            @Oause.canceled -= instance.OnOause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -271,5 +300,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnGravityChange(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnOause(InputAction.CallbackContext context);
     }
 }
