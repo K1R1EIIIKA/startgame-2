@@ -21,6 +21,9 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
+        direction = Vector3.zero;
+        forwardSpeed = 0;
+        
         if (Instance == null)
             Instance = this;
         else
@@ -75,7 +78,7 @@ public class Movement : MonoBehaviour
             return;
 
         float speed = forwardSpeed * 3.33f;
-        if (speed >= 20f && !PlayerManager.IsWon)
+        if (speed >= PlayerManager.Instance.WinSpeed && !PlayerManager.IsWon && !PlayerManager.IsLose)
             TerrainGenerator.Instance.SpawnWinTerrain();
         
         speedText.text = speed.ToString("0");

@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         if (!EnemyMovement.CanAttack || EnemyMovement.IsHit) return;
@@ -20,6 +27,7 @@ public class EnemyAttack : MonoBehaviour
         
         yield return new WaitForSeconds(EnemySpawn.Instance.AttackPrepareTime);
         Debug.Log("enemy preparing");
+        _animator.SetTrigger("ReadyHit");
         
         yield return new WaitForSeconds(EnemySpawn.Instance.AttackTime);
         Attack();

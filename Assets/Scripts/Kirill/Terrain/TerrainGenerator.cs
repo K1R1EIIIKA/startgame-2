@@ -19,6 +19,7 @@ public class TerrainGenerator : MonoBehaviour
     [SerializeField] private GameObject _playerOvertookTerrain;
     [SerializeField] private GameObject _enemyOvertookTerrain;
     [SerializeField] private GameObject _winTerrain;
+    [SerializeField] private GameObject _loseTerrain;
     [SerializeField] private Transform _terrainParent;
 
     [Header("Other")] [SerializeField] private int _maxTerrainCount = 5;
@@ -180,12 +181,30 @@ public class TerrainGenerator : MonoBehaviour
         PlayerManager.IsWon = true;
         RemoveTerrain(2);
         
+        
         Vector3 spawnPos = _startReplacedPos;
         Transform newRoad = Array.Find(_winTerrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
         spawnPos.z -= newRoad.localScale.y * 2;
         _currentPosition.z -= newRoad.localScale.y * 4;
         
         Instantiate(_winTerrain, spawnPos, Quaternion.identity, _terrainParent);
+        
+        _isSpawnNewTerrains = false;
+        RemoveTerrain(3);
+        Destroy(_terrainList[^1]);
+    }
+
+    public void SpawnLoseTerrain()
+    {
+        PlayerManager.IsLose = true;
+        RemoveTerrain(2);
+        
+        Vector3 spawnPos = _startReplacedPos;
+        Transform newRoad = Array.Find(_loseTerrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
+        spawnPos.z -= newRoad.localScale.y * 2;
+        _currentPosition.z -= newRoad.localScale.y * 4;
+        
+        Instantiate(_loseTerrain, spawnPos, Quaternion.identity, _terrainParent);
         
         _isSpawnNewTerrains = false;
         RemoveTerrain(3);

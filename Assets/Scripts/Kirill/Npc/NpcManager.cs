@@ -24,8 +24,14 @@ public class NpcManager : MonoBehaviour
             Instance = this;
         else 
             Destroy(gameObject);
+
         
-        _player = Movement.Instance.transform;
+    }
+
+    private void Start()
+    {
+        Debug.Log(PlayerAttack.Instance);
+        _player = PlayerAttack.Instance.transform;
     }
 
     public void SpawnAllNpc(int direction)

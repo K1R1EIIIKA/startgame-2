@@ -21,6 +21,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
+        IsHit = false;
+        Speed = 0;
+        IsLinked = false;
+        CanAttack = false;
+        IsAttacked = false;
+        
         if (Instance == null)
             Instance = this;
         else 

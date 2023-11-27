@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     public static bool hitHappened;
 
     public static bool IsWon;
+    public static bool IsLose;
     public static PlayerManager Instance;
 
     [Header("Components")]
@@ -37,6 +38,12 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        gameOver = false;
+        isGameStarted = false;
+        distance = 0;
+        playerIsUp = false;
+        hitHappened = false;
+        
         if (Instance == null)
             Instance = this;
         else 
@@ -57,6 +64,10 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         _enemyCountText.text = EnemySpawn.EnemyCount + "/" + MaxEnemyCount;
+        if (EnemySpawn.EnemyCount >= MaxEnemyCount)
+        {
+            TerrainGenerator.Instance.SpawnLoseTerrain();
+        }
         
         
         distance = Vector3.Distance(Vector3.back * 4.42f, controller.transform.position) * _distanceScale;
