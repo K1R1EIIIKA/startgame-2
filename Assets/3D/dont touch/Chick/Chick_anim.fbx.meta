@@ -3,7 +3,12 @@ guid: 4a8a22282bef954468d2995646628371
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WokPot
+    second: {fileID: 2100000, guid: 4f626f8cc1b5c4a4495a5badb1f394de, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
