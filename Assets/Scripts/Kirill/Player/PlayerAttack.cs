@@ -26,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!EnemySpawn.IsEnemy || !_canAttack || NumAttacks == 0)
             return;
-        
+
         Debug.Log("player attack");
         StartCoroutine(Attack());
         _canAttack = false;
@@ -35,10 +35,15 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator Attack()
     {
-         Movement.animator.SetBool("", true);// a
-        yield return new WaitForSeconds(1); 
-         FindObjectOfType<AudioManager>().PlaySound("HitPan");
+        if (transform.position.x > EnemyMovement.Instance.transform.position.z)
+            Movement.animator.SetBool("HitLeft", true); 
+        else
+            Movement.animator.SetBool("HitRight", true); 
+        
+        yield return new WaitForSeconds(1);
+        FindObjectOfType<AudioManager>().PlaySound("HitPan");
         _hitCollider.enabled = true;
+
         yield return new WaitForSeconds(0.5f);
         _hitCollider.enabled = false;
     }

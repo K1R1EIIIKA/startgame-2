@@ -17,8 +17,15 @@ public class EnemyMovement : MonoBehaviour
     public static bool CanAttack;
     public static bool IsAttacked;
 
+    public static EnemyMovement Instance;
+
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else 
+            Destroy(gameObject);
+        
         Speed = Movement.forwardSpeed * 2;
         _player = Movement.Instance.transform;
         _controller = GetComponent<CharacterController>();

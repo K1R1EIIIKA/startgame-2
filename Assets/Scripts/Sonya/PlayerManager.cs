@@ -60,7 +60,7 @@ public class PlayerManager : MonoBehaviour
         
         
         distance = Vector3.Distance(Vector3.back * 4.42f, controller.transform.position) * _distanceScale;
-        Debug.Log(distance);
+        // Debug.Log(distance);
         if (gameOver)
         {
             Time.timeScale = 0;
