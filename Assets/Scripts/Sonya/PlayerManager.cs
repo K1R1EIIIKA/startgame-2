@@ -7,7 +7,6 @@ using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
-    public static bool gameOver;
     public static bool isGameStarted;
     public static float distance;
     public static bool playerIsUp;
@@ -23,7 +22,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private CharacterController controller;
 
     //[SerializeField] private Animator animator;
-    [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject _winCanvas;
     [SerializeField] private GameObject _loseCanvas;
     [SerializeField] private GameObject lowSpeedImage;
@@ -41,7 +39,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        gameOver = false;
         isGameStarted = false;
         distance = 0;
         playerIsUp = false;
@@ -57,11 +54,9 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         record.text = "Record: " + PlayerPrefs.GetFloat("Record", 0).ToString("0.0");
-        gameOver = false;
         Time.timeScale = 1;
         isGameStarted = true;
         distance = 0;
-        gameOverPanel.SetActive(false);
     }
 
     void Update()
@@ -72,14 +67,8 @@ public class PlayerManager : MonoBehaviour
             Lose();
         }
         
-        
         distance = Vector3.Distance(Vector3.back * 4.42f, controller.transform.position) * _distanceScale;
         // Debug.Log(distance);
-        if (gameOver)
-        {
-            Time.timeScale = 0;
-            gameOverPanel.SetActive(true);
-        }
 
         distanceText.text = ((int)distance).ToString();
         if (distance >= PlayerPrefs.GetFloat("Record", 0))
@@ -90,7 +79,7 @@ public class PlayerManager : MonoBehaviour
 
         if (hitHappened)
         {
-              FindObjectOfType<AudioManager>().PlaySound("HitObj");
+            FindObjectOfType<AudioManager>().PlaySound("HitObj");
             Movement.forwardSpeed -= 1;
             StartCoroutine(LowSpeedImage());
         }

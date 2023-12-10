@@ -16,7 +16,7 @@ public class TerrainGenerator : MonoBehaviour
     [SerializeField] private List<GameObject> _panHittingTerrains;
     [SerializeField] private List<GameObject> _gravitationTerrains;
 
-    [SerializeField] private GameObject _playerOvertookTerrain;
+    // [SerializeField] private GameObject _playerOvertookTerrain;
     [SerializeField] private GameObject _enemyOvertookTerrain;
     [SerializeField] private GameObject _winTerrain;
     [SerializeField] private GameObject _loseTerrain;
@@ -89,8 +89,8 @@ public class TerrainGenerator : MonoBehaviour
         float offset = 0;
         if (_terrainList.Count > 0)
         {
-            var bigObjectOffset = GetObjectOffset(^1, terrain);
-            Transform road = Array.Find(_terrainList[^1].GetComponentsInChildren<Transform>(), x => x.name == "Road");
+            // var bigObjectOffset = GetObjectOffset(^1, terrain);
+            // Transform road = Array.Find(_terrainList[^1].GetComponentsInChildren<Transform>(), x => x.name == "Road");
             Transform newRoad = Array.Find(terrain.GetComponentsInChildren<Transform>(), x => x.name == "Road");
             
             // _offset = road.localScale.y / 50 - bigObjectOffset;
@@ -164,11 +164,11 @@ public class TerrainGenerator : MonoBehaviour
         _offsetList.RemoveAt(index);
     }
 
-    public void SpawnPlayerOvertookTerrain()
-    {
-        RemoveTerrain(2);
-        ReplaceTerrain(_playerOvertookTerrain);
-    }
+    // public void SpawnPlayerOvertookTerrain()
+    // {
+    //     RemoveTerrain(2);
+    //     ReplaceTerrain(_playerOvertookTerrain);
+    // }
 
     public void SpawnEnemyOvertookTerrain()
     {

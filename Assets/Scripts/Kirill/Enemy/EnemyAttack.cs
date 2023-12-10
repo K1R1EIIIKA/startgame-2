@@ -28,7 +28,7 @@ public class EnemyAttack : MonoBehaviour
         PlayerManager.Instance.IconAttack.SetActive(true);
         
         yield return new WaitForSeconds(EnemySpawn.Instance.AttackPrepareTime);
-        Debug.Log("enemy preparing");
+        // Debug.Log("enemy preparing");
         _animator.SetTrigger("ReadyHit");
         
         yield return new WaitForSeconds(EnemySpawn.Instance.AttackTime);
@@ -40,7 +40,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (EnemyMovement.IsHit) return;
         
-        Debug.Log("enemy attacked");
+        // Debug.Log("enemy attacked");
         
         TerrainGenerator.Instance.SpawnEnemyOvertookTerrain();
 

@@ -30,7 +30,6 @@ public class NpcManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(PlayerAttack.Instance);
         _player = PlayerAttack.Instance.transform;
     }
 

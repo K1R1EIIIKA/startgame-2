@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void StartAttack()
     {
-        Debug.Log(!EnemySpawn.IsEnemy + " " + !_canAttack  + " " + NumAttacks);
+        // Debug.Log(!EnemySpawn.IsEnemy + " " + !_canAttack  + " " + NumAttacks);
         if (!EnemySpawn.IsEnemy || !_canAttack || NumAttacks == 0)
             return;
 
