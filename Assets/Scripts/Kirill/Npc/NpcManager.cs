@@ -24,8 +24,6 @@ public class NpcManager : MonoBehaviour
             Instance = this;
         else 
             Destroy(gameObject);
-
-        
     }
 
     private void Start()
