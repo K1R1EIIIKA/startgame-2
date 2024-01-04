@@ -2172,11 +2172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3217252846717615108, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1.1561241e-10
       objectReference: {fileID: 0}
     - target: {fileID: 3217252846717615108, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -3.6619596e-11
       objectReference: {fileID: 0}
     - target: {fileID: 3217252846717615108, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2212,11 +2212,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3597452903525525729, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000480957
+      value: -0.000000048088484
       objectReference: {fileID: 0}
     - target: {fileID: 3597452903525525729, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000007434991
+      value: 0.0000000074338757
       objectReference: {fileID: 0}
     - target: {fileID: 3597452903525525729, guid: 0fa727e7b6a94074dbdec9f982398c78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2375,6 +2375,10 @@ PrefabInstance:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 1219576874}
+    - target: {fileID: 1596006727661630653, guid: af9202c66f6ae3c4f8d2078c228184a9, type: 3}
+      propertyPath: speedIncrease
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4936848796749213227, guid: af9202c66f6ae3c4f8d2078c228184a9, type: 3}
       propertyPath: m_Enabled
       value: 0

@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        IsWon = false;
         isGameStarted = false;
         distance = 0;
         playerIsUp = false;

@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _moveSpeed = 10;
     [SerializeField] private TextMeshProUGUI speedText;
     public Vector2 _moveDirection;
+
+    [SerializeField] private float speedIncrease = 1;
     //[SerializeField] private float Gravity = -20;
 
     public static Movement Instance;
@@ -82,7 +84,7 @@ public class Movement : MonoBehaviour
             TerrainGenerator.Instance.SpawnWinTerrain();
         
         speedText.text = speed.ToString("0");
-        forwardSpeed += 0.1f * Time.deltaTime;
+        forwardSpeed += speedIncrease / 10 * Time.deltaTime;
         direction.z = forwardSpeed;
 //Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
         //    if (transform.position != targetPosition)
