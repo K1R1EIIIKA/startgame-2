@@ -5,11 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Final.unity
-    guid: fd7a8a50528c3394b9f06fc97ca5a538
   - enabled: 1
     path: Assets/Scenes/StoryGame.unity
     guid: 268d5ce238e77f84e87106c4992d6366
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 28b41e4cb02573b4cbe1c12454b92e38
+  - enabled: 1
+    path: Assets/Scenes/InfiniteGame.unity
+    guid: d32478199b148894386ab74206224885
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 73a9436c99f223a428822e8b36ecb40e, type: 2}

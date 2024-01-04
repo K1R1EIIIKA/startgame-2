@@ -8,7 +8,7 @@ public class ObstacleCollision : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerManager.hitHappened = true;
+            GameManager.hitHappened = true;
             StartCoroutine(Destroy());
         }
     }

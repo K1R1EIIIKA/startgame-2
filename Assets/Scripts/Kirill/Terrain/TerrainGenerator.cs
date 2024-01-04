@@ -178,7 +178,7 @@ public class TerrainGenerator : MonoBehaviour
 
     public void SpawnWinTerrain()
     {
-        PlayerManager.IsWon = true;
+        GameManager.IsWon = true;
         RemoveTerrain(2);
         
         
@@ -196,7 +196,7 @@ public class TerrainGenerator : MonoBehaviour
 
     public void SpawnLoseTerrain()
     {
-        PlayerManager.IsLose = true;
+        GameManager.IsLose = true;
         RemoveTerrain(2);
         
         Vector3 spawnPos = _startReplacedPos;

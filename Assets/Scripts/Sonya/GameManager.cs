@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sonya;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public static bool isGameStarted;
     public static float distance;
@@ -14,12 +15,14 @@ public class PlayerManager : MonoBehaviour
 
     public static bool IsWon;
     public static bool IsLose;
-    public static PlayerManager Instance;
+    public static GameManager Instance;
     
     public GameObject IconAttack;
 
     [Header("Components")]
     [SerializeField] private CharacterController controller;
+
+    public GameMode gameMode;
 
     //[SerializeField] private Animator animator;
     [SerializeField] private GameObject _winCanvas;

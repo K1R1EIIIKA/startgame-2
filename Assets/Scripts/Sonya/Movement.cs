@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sonya;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
@@ -54,7 +55,7 @@ public class Movement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (!PlayerManager.isGameStarted)
+        if (!GameManager.isGameStarted)
             return;
         // Debug.Log("move");
         _moveDirection = context.ReadValue<Vector2>();
@@ -76,11 +77,11 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (!PlayerManager.isGameStarted)
+        if (!GameManager.isGameStarted)
             return;
 
         float speed = forwardSpeed * 3.33f;
-        if (speed >= PlayerManager.Instance.WinSpeed && !PlayerManager.IsWon && !PlayerManager.IsLose)
+        if (speed >= GameManager.Instance.WinSpeed && !GameManager.IsWon && !GameManager.IsLose && GameManager.Instance.gameMode == GameMode.Story)
             TerrainGenerator.Instance.SpawnWinTerrain();
         
         speedText.text = speed.ToString("0");
